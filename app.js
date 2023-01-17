@@ -14,8 +14,9 @@ const usersRouter = require("./routes/users");
 const catalogRouter = require("./routes/catalog");
 
 // database
+const MONGO_URI = "mongodb+srv://admin:hamees25@cluster0.n0zmcss.mongodb.net/local_library?retryWrites=true&w=majority"
 const mongoose = require("mongoose");
-const mongoDB = process.env.MONGODB_URI;
+const mongoDB = process.env.MONGODB_URI || MONGO_URI;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
